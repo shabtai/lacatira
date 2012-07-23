@@ -32,7 +32,7 @@
 	</build>
     <modules>
         <module>management</module>
-        <module>management-gui</module>
+        <module>gui</module>
         <!--<module>citypoll</module>-->
         <!--<module>citypoll</module>-->
     </modules>
