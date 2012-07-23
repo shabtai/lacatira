@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Facebook Client-side Authentication Example</title>
+    <title>Facebook Client-side Authentication Example 2</title>
   </head>
   <body>
     <div id="fb-root"></div>
@@ -37,9 +37,18 @@
             })
 
               FB.api('/me/friends', { fields: 'name,id,location,birthday' }, function(result) {
-                  alert(result);
-                  document.getElementById('friends2').innerHTML = result
+                  document.getElementById('friends2').innerHTML = result.data[0].name
 })
+
+              FB.api(
+  {
+    method: 'fql.query',
+    query: 'SELECT friends FROM user WHERE uid=result.data[0].id()'
+  },
+  function(response) {
+    alert('Your fof is ' + response[0].name);
+  }
+);
             document.getElementById('auth-loggedout').style.display = 'none';
             document.getElementById('auth-loggedin').style.display = 'block';
           } else {
@@ -59,7 +68,7 @@
       }
     </script>
 
-    <h1>Facebook Client-side Authentication Example</h1>
+    <h1>Facebook Client-side Authentication Example 2</h1>
       <div id="auth-status">
         <div id="auth-loggedout">
           <a href="#" id="auth-loginlink">Login</a>
@@ -68,9 +77,9 @@
           Hi, <span id="auth-displayname"></span>
         (<a href="#" id="auth-logoutlink">logout</a>)
       </div>
-          <div id="friends" style="display:none">
-            Hi, <span id="friends2"></span>
-          (<a href="#" id="friends3">logout</a>)
+          <div id="friends">
+            your best friend is, <span id="friends2"></span>
+
         </div>
 
     </div>
