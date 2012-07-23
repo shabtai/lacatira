@@ -36,18 +36,58 @@
               }
             })
 
-              FB.api('/me/friends', { fields: 'name,id,location,birthday' }, function(result) {
-                  document.getElementById('friends2').innerHTML = result.data[0].name
-})
+//              FB.api('/me/friends', { fields: 'name,id,location,birthday' }, function(result) {
+//                  document.getElementById('friends2').innerHTML = result.data[0].name
+//                          result.data.map( function(item) {
+//                               alert(item.name);
+//                          })
+//
+//
+//
+//})
 
-//              FB.api(
-//  {
-//    method: 'fql.query',
-//    query: 'SELECT uid, name FROM user WHERE uid = me() OR uid IN (SELECT uid2 FROM friend WHERE uid in ( SELECT uid2 FROM friend WHERE uid1 = me())'
-//  },
-//  function(response) {
-//    alert('Your fof is ' + response[0].name);
-//  }
+              FB.api({
+                method: 'fql.multiquery',
+                queries: {
+                 query1:  'select uid  FROM user WHERE  uid IN (SELECT uid1 FROM friend WHERE uid2=me() '
+//                 query2: 'select uid, name FROM user WHERE  uid IN (select uid  FROM #query1)'
+                }
+               },
+               function(response) {
+                   response.data.map( function(item) {
+                               alert(item.name);
+                          })
+             })
+
+
+//              FB.api('/me', function(response) {
+//                     var query = FB.Data.query('select name, hometown_location, sex from user where uid IN (SELECT uid2 FROM friend WHERE uid1(SELECT uid2 FROM friend WHERE uid1 = me())');
+//                  var query = FB.Data.query('select name, hometown_location, sex from user where uid = me()');
+//
+//                  query.wait(function(rows) {
+//
+//                       document.getElementById('name').innerHTML =
+//                         'Your name: ' + rows[0].name + "<br />" +
+//                         '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
+//                     });
+//                });
+
+//
+//            var a = FB.api.query(
+//                    'select uid FROM user WHERE  uid IN (SELECT uid1 FROM friend WHERE uid2=me() '
+//            );
+////            var b = FB.Data.query(
+////                    'select uid , name FROM user WHERE uid in  (SELECT uid1 FROM friend WHERE uid2 in ({0})', a
+////            );
+//
+//
+//            FB.api.waitOn([a],
+//        function () {
+//                document.getElementById('name').innerHTML =  b;
+////                         'Your name: ' + rows[0].name + "<br />" +
+////                         '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
+////                     });
+//        }
 //);
             document.getElementById('auth-loggedout').style.display = 'none';
             document.getElementById('auth-loggedin').style.display = 'block';
@@ -79,6 +119,11 @@
       </div>
           <div id="friends">
             your best friend is, <span id="friends2"></span>
+
+        </div>
+          </div>
+          <div id="f3">
+            friends, <span id="name"></span>
 
         </div>
 
