@@ -40,15 +40,15 @@
                   document.getElementById('friends2').innerHTML = result.data[0].name
 })
 
-              FB.api(
-  {
-    method: 'fql.query',
-    query: 'SELECT friends FROM user WHERE uid=result.data[0].id()'
-  },
-  function(response) {
-    alert('Your fof is ' + response[0].name);
-  }
-);
+//              FB.api(
+//  {
+//    method: 'fql.query',
+//    query: 'SELECT uid, name FROM user WHERE uid = me() OR uid IN (SELECT uid2 FROM friend WHERE uid in ( SELECT uid2 FROM friend WHERE uid1 = me())'
+//  },
+//  function(response) {
+//    alert('Your fof is ' + response[0].name);
+//  }
+//);
             document.getElementById('auth-loggedout').style.display = 'none';
             document.getElementById('auth-loggedin').style.display = 'block';
           } else {
