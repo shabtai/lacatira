@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.nsn.cloudstreet</groupId>
+        <artifactId>cloudstreet</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>cloudstreet-data</artifactId>
+    <packaging>pom</packaging>
+    <name>CloudStreet Data Modules</name>
+
+    <description>
+        CloudStreet domain objects (cloudstreet-data-common) and DAO frameworks (Hibernate, JPA).
+    </description>
+
+
+    <modules>
+        <module>hibernate</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons.beanutils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+    </dependencies>
+</project>
+

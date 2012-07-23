@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						 xmlns:beans="http://www.springframework.org/schema/beans"
+						 xsi:schemaLocation="
+						 						http://www.springframework.org/schema/beans 
+						 						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+              									http://www.springframework.org/schema/security 
+              									http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- Override the default password-encoder (SHA) by uncommenting the following and changing the class -->
+	<!-- <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/> -->
+
+	<!-- enable annotation security -->
+	<global-method-security pre-post-annotations="enabled" />
+
+	<http entry-point-ref="restAuthenticationEntryPoint" create-session="stateless">
+		<!--<intercept-url pattern="/services/api/events/**" access="ROLE_EVENT_MANAGER"/>-->
+		<!-- put here all the roles for loging authentication-->
+		<intercept-url pattern="/services/api/auth/**" access="ROLE_EVENT_MANAGER,ROLE_PROVIDER,ROLE_CONSUMER"/>
+        <custom-filter ref="customAuthenticationFilter" position="BASIC_AUTH_FILTER"/>
+        <custom-filter ref="customLogoutFilter" position="LOGOUT_FILTER"/>
+    </http>
+ 
+ 	<!-- Customized Basic auth. filter -->
+    <beans:bean id="customAuthenticationFilter" class="org.springframework.security.web.authentication.www.BasicAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="authenticationEntryPoint" ref="restAuthenticationEntryPoint"/>        	
+    </beans:bean>
+    
+    <!-- Customized logout filter -->
+    <beans:bean id="customLogoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+    	<beans:constructor-arg name="logoutSuccessHandler" ref="customLogoutSuccessHandler"/>
+    	<beans:constructor-arg name="handlers" ref="securityContextLogoutHandler"/>
+    </beans:bean>
+    
+    <beans:bean id="customLogoutSuccessHandler" class="com.nsn.cloudstreet.rest.security.RestLogoutSuccessHandler"/>
+    <beans:bean id="securityContextLogoutHandler" class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
+
+    <authentication-manager alias="authenticationManager">
+       <authentication-provider>
+            <user-service>
+                <user name="manager"  password=	"manager" 	authorities=	"ROLE_EVENT_MANAGER" />
+                <user name="provider" password=	"provider" 	authorities=	"ROLE_PROVIDER" />
+                <user name="consumer" password=	"consumer" 	authorities=	"ROLE_CONSUMER" />
+            </user-service>
+        </authentication-provider>
+
+    </authentication-manager>
+</beans:beans>

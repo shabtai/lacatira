@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <groupId>omega</groupId>
-    <artifactId>omega</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
 
-    <build>
+	<groupId>com.nsn.cloudstreet</groupId>
+	<artifactId>cloudstreet</artifactId>
+	<packaging>pom</packaging>
+	<name>CloudStreet LTE</name>
+	<version>1.0.0-SNAPSHOT</version>
+	<inceptionYear>2012</inceptionYear>
+
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<build>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
 			<plugin>
@@ -30,13 +34,21 @@
 			</plugin>
 		</plugins>
 	</build>
-    <modules>
-        <module>management</module>
-        <module>gui</module>
-        <!--<module>citypoll</module>-->
-        <!--<module>citypoll</module>-->
-    </modules>
-    <dependencies>
+
+
+	<modules>
+		<module>data</module>
+		<module>rest</module>
+		<!--<module>cloudstreet-lte-gui</module>-->
+		<module>specialevents</module>
+		<module>common</module>
+		<module>gui</module>
+        <!--<module>users</module>-->
+		<!--<module>market</module>-->
+<!--         <module>cloudstreet-it</module> -->
+        <module>persistence-dependencies</module>
+	</modules>
+	<dependencies>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
@@ -133,6 +145,21 @@
 
 		<!-- Logging -->
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
@@ -174,7 +201,7 @@
 		</dependency>
 	</dependencies>
 
-    <profiles>
+	<profiles>
 		<!-- ================= Database Profiles ================= -->
 
 		<profile>
@@ -190,35 +217,44 @@
                 <jdbc.username>sa</jdbc.username>
                 <jdbc.password/>
             </properties>
-        </profile>
+        </profile> 
 
-        <profile>
-            <id>itest</id>
-            <properties>
-                <dao.framework>hibernate</dao.framework>
-                <dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
-                <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
-                <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-                <jdbc.groupId>mysql</jdbc.groupId>
-                <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-                <jdbc.version>5.1.14</jdbc.version>
-                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>
-                    <![CDATA[jdbc:mysql://localhost/cloudstreetIT?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>
-                </jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>root</jdbc.password>
-                <skipTests>true</skipTests>
-            </properties>
-            <activation>
-                <property>
-                    <name>itest</name>
-                </property>
-            </activation>
-            <modules>
-            </modules>
-        </profile>
-
+        <!--<profile>-->
+            <!--<id>itest</id>-->
+            <!--<properties>-->
+                <!--<dao.framework>hibernate</dao.framework>-->
+                <!--<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>-->
+                <!--<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>-->
+                <!--<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>-->
+                <!--<jdbc.groupId>mysql</jdbc.groupId>-->
+                <!--<jdbc.artifactId>mysql-connector-java</jdbc.artifactId>-->
+                <!--<jdbc.version>5.1.14</jdbc.version>-->
+                <!--<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>-->
+                <!--<jdbc.url>-->
+                    <!--<![CDATA[jdbc:mysql://localhost/cloudstreetIT?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>-->
+                <!--</jdbc.url>-->
+                <!--<jdbc.username>root</jdbc.username>-->
+                <!--<jdbc.password>root</jdbc.password>-->
+                <!--<skipTests>true</skipTests>-->
+            <!--</properties>-->
+            <!--<activation>-->
+                <!--<property>-->
+                    <!--<name>itest</name>-->
+                <!--</property>-->
+            <!--</activation>-->
+            <!--<modules>-->
+		        <!--<module>data</module>-->
+		        <!--<module>rest</module>-->
+		        <!--<module>cloudstreet-lte-gui</module>-->
+		        <!--<module>specialevents</module>-->
+		        <!--<module>common</module>-->
+		        <!--<module>users</module>-->
+		        <!--<module>market</module>-->
+                <!--<module>cloudstreet-it</module>-->
+                <!--<module>persistence-dependencies</module>-->
+            <!--</modules>-->
+        <!--</profile>-->
+        
 		<!-- ================= Container Profiles ================= -->
 		<profile>
 			<id>jetty</id>
@@ -229,10 +265,11 @@
 				</cargo.container.url>
 			</properties>
 		</profile>
-
+		
 	</profiles>
 
-    <properties>
+
+	<properties>
 		<dao.framework>hibernate</dao.framework>
 		<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
 		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
@@ -246,9 +283,9 @@
 		</jdbc.url>
 		<jdbc.username>root</jdbc.username>
 		<jdbc.password>root</jdbc.password>
-
+		
 		<jdbc.hibernate.hbm2ddl.auto>update</jdbc.hibernate.hbm2ddl.auto>
-
+		
 		<test.dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</test.dbunit.dataTypeFactoryName>
         <test.hibernate.dialect>org.hibernate.dialect.HSQLDialect</test.hibernate.dialect>
         <test.jdbc.groupId>org.hsqldb</test.jdbc.groupId>
@@ -259,9 +296,9 @@
         <test.jdbc.username>sa</test.jdbc.username>
         <test.jdbc.password/>
         <test.jdbc.hibernate.hbm2ddl.auto>create</test.jdbc.hibernate.hbm2ddl.auto>
-
-
-
+			
+	
+		
 		<cargo.container>tomcat6x</cargo.container>
 		<cargo.container.url>
 			http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.29/bin/apache-tomcat-6.0.29.zip
@@ -321,5 +358,4 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<copyright.year>2010-2012</copyright.year>
 	</properties>
-
 </project>

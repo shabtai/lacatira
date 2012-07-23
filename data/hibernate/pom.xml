@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.nsn.cloudstreet</groupId>
+        <artifactId>cloudstreet-data</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>cloudstreet-hibernate</artifactId>
+    <packaging>jar</packaging>
+    <name>CloudStreet Hibernate Module</name>
+
+    <description>
+        CloudStreet DAO backend implemented with Hibernate (http://hibernate.org).
+    </description>
+
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>hibernate3-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <components>
+                        <component>
+                            <name>hbm2ddl</name>
+                            <implementation>annotationconfiguration</implementation>
+                        </component>
+                    </components>
+                    <componentProperties>
+                        <drop>true</drop>
+                        <jdk5>true</jdk5>
+                        <propertyfile>target/test-classes/jdbc.test.properties</propertyfile>
+                        <configurationfile>src/test/resources/hibernate.cfg.xml</configurationfile>
+                        <skip>${skipTests}</skip>
+                    </componentProperties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>hbm2ddl</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>${test.jdbc.groupId}</groupId>
+                        <artifactId>${test.jdbc.artifactId}</artifactId>
+                        <version>${test.jdbc.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>dbunit-maven-plugin</artifactId>
+                <version>1.0-beta-3</version>
+                <configuration>
+                    <dataTypeFactoryName>${test.dbunit.dataTypeFactoryName}</dataTypeFactoryName>
+                    <driver>${test.jdbc.driverClassName}</driver>
+                    <username>${test.jdbc.username}</username>
+                    <password>${test.jdbc.password}</password>
+                    <url>${test.jdbc.url}</url>
+                    <src>src/test/resources/sample-data.xml</src>
+                    <type>${dbunit.operation.type}</type>
+                    <schema>${dbunit.schema}</schema>
+                    <skip>${skipTests}</skip>
+                    <transaction>true</transaction>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>operation</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>${test.jdbc.groupId}</groupId>
+                        <artifactId>${test.jdbc.artifactId}</artifactId>
+                        <version>${test.jdbc.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.nsn.cloudstreet.specialevents</groupId>
+            <artifactId>specialevents-model</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>${project.groupId}</groupId>-->
+            <!--<artifactId>cloudstreet-data-common</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
+                <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cloudstreet-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hibernate.javax.persistence</groupId>
+                    <artifactId>hibernate-jpa-2.0-api</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>${jpa.version}</version>
+        </dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.3.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+
+        <!-- Use Javassist as Hibernate's bytecode provider -->
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.1.GA</version>
+        </dependency>
+        <!-- Enable EhCache support -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+            <!-- Exclude old EhCache (artifactId changed) -->
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+        
+    		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons.dbcp.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-collections</artifactId>
+					<groupId>commons-collections</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+   
+    		<!--<dependency>-->
+    			<!--<groupId>com.nsn.cloudstreet</groupId>-->
+    			<!--<artifactId>cloudstreet-common</artifactId>-->
+    			<!--<version>1.0.0-SNAPSHOT</version>-->
+    			<!--<type>jar</type>-->
+    			<!--<scope>compile</scope>-->
+    		<!--</dependency>-->
+    		<dependency>
+    			<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    			<artifactId>specialevents-model</artifactId>
+    			<version>1.0.0-SNAPSHOT</version>
+    			<type>jar</type>
+    			<scope>compile</scope>
+    		</dependency>
+    		<dependency>
+    			<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    			<artifactId>specialevents-dao</artifactId>
+    			<version>1.0.0-SNAPSHOT</version>
+    			<type>jar</type>
+    			<scope>compile</scope>
+    		</dependency>
+        <dependency>
+                          <groupId>org.compass-project</groupId>
+                          <artifactId>compass</artifactId>
+                          <version>${compass.version}</version>
+                      </dependency>
+
+
+    </dependencies>
+ 
+    
+</project>
