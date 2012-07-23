@@ -33,7 +33,7 @@
     	<beans:constructor-arg name="handlers" ref="securityContextLogoutHandler"/>
     </beans:bean>
     
-    <beans:bean id="customLogoutSuccessHandler" class="com.nsn.cloudstreet.rest.security.RestLogoutSuccessHandler"/>
+    <beans:bean id="customLogoutSuccessHandler" class="com.lacatira.rest.security.RestLogoutSuccessHandler"/>
     <beans:bean id="securityContextLogoutHandler" class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
 
     <authentication-manager alias="authenticationManager">

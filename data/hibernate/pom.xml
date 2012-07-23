@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet-data</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira-data</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cloudstreet-hibernate</artifactId>
+    <artifactId>lacatira-hibernate</artifactId>
     <packaging>jar</packaging>
-    <name>CloudStreet Hibernate Module</name>
+    <name>lacatira Hibernate Module</name>
 
     <description>
-        CloudStreet DAO backend implemented with Hibernate (http://hibernate.org).
+        lacatira DAO backend implemented with Hibernate (http://hibernate.org).
     </description>
 
 
@@ -100,7 +100,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.nsn.cloudstreet.specialevents</groupId>
+            <groupId>com.lacatira.specialevents</groupId>
             <artifactId>specialevents-model</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <type>test-jar</type>
@@ -108,12 +108,12 @@
         </dependency>
         <!--<dependency>-->
             <!--<groupId>${project.groupId}</groupId>-->
-            <!--<artifactId>cloudstreet-data-common</artifactId>-->
+            <!--<artifactId>lacatira-data-common</artifactId>-->
             <!--<version>${project.version}</version>-->
         <!--</dependency>-->
                 <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>cloudstreet-common</artifactId>
+            <artifactId>lacatira-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -185,20 +185,20 @@
    
     		<!--<dependency>-->
     			<!--<groupId>com.nsn.cloudstreet</groupId>-->
-    			<!--<artifactId>cloudstreet-common</artifactId>-->
+    			<!--<artifactId>lacatira-common</artifactId>-->
     			<!--<version>1.0.0-SNAPSHOT</version>-->
     			<!--<type>jar</type>-->
     			<!--<scope>compile</scope>-->
     		<!--</dependency>-->
     		<dependency>
-    			<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    			<groupId>com.lacatira.specialevents</groupId>
     			<artifactId>specialevents-model</artifactId>
     			<version>1.0.0-SNAPSHOT</version>
     			<type>jar</type>
     			<scope>compile</scope>
     		</dependency>
     		<dependency>
-    			<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    			<groupId>com.lacatira.specialevents</groupId>
     			<artifactId>specialevents-dao</artifactId>
     			<version>1.0.0-SNAPSHOT</version>
     			<type>jar</type>

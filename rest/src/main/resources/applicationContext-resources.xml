@@ -13,5 +13,5 @@
 		</property>
 	</bean>
 
-  <context:component-scan base-package="com.nsn.cloudstreet.specialevents.management"/>
+  <context:component-scan base-package="com.lacatira.specialevents.management"/>
 </beans>

@@ -2,10 +2,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.nsn.cloudstreet</groupId>
-	<artifactId>cloudstreet</artifactId>
+	<groupId>com.lacatira</groupId>
+	<artifactId>lacatira</artifactId>
 	<packaging>pom</packaging>
-	<name>CloudStreet LTE</name>
+	<name>lacatira LTE</name>
 	<version>1.0.0-SNAPSHOT</version>
 	<inceptionYear>2012</inceptionYear>
 
@@ -39,13 +39,13 @@
 	<modules>
 		<module>data</module>
 		<module>rest</module>
-		<!--<module>cloudstreet-lte-gui</module>-->
+		<!--<module>lacatira-lte-gui</module>-->
 		<module>specialevents</module>
 		<module>common</module>
 		<module>gui</module>
         <!--<module>users</module>-->
 		<!--<module>market</module>-->
-<!--         <module>cloudstreet-it</module> -->
+<!--         <module>lacatira-it</module> -->
         <module>persistence-dependencies</module>
 	</modules>
 	<dependencies>
@@ -231,7 +231,7 @@
                 <!--<jdbc.version>5.1.14</jdbc.version>-->
                 <!--<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>-->
                 <!--<jdbc.url>-->
-                    <!--<![CDATA[jdbc:mysql://localhost/cloudstreetIT?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>-->
+                    <!--<![CDATA[jdbc:mysql://localhost/lacatiraIT?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>-->
                 <!--</jdbc.url>-->
                 <!--<jdbc.username>root</jdbc.username>-->
                 <!--<jdbc.password>root</jdbc.password>-->
@@ -245,12 +245,12 @@
             <!--<modules>-->
 		        <!--<module>data</module>-->
 		        <!--<module>rest</module>-->
-		        <!--<module>cloudstreet-lte-gui</module>-->
+		        <!--<module>lacatira-lte-gui</module>-->
 		        <!--<module>specialevents</module>-->
 		        <!--<module>common</module>-->
 		        <!--<module>users</module>-->
 		        <!--<module>market</module>-->
-                <!--<module>cloudstreet-it</module>-->
+                <!--<module>lacatira-it</module>-->
                 <!--<module>persistence-dependencies</module>-->
             <!--</modules>-->
         <!--</profile>-->
@@ -279,7 +279,7 @@
 		<jdbc.version>5.1.14</jdbc.version>
 		<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
 		<jdbc.url>
-		<![CDATA[jdbc:mysql://localhost/cloudstreet?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>
+		<![CDATA[jdbc:mysql://localhost/lacatira?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]>
 		</jdbc.url>
 		<jdbc.username>root</jdbc.username>
 		<jdbc.password>root</jdbc.password>

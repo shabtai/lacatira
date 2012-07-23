@@ -5,24 +5,24 @@
     <modelVersion>4.0.0</modelVersion>
 
 <parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet-specialevents</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira-specialevents</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.nsn.cloudstreet.specialevents</groupId>
+    <groupId>com.lacatira.specialevents</groupId>
     <artifactId>specialevents-management</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>CloudStreet special events management</name>
+    <name>lacatira special events management</name>
    <dependencies>
     	<dependency>
-    		<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    		<groupId>com.lacatira.specialevents</groupId>
     		<artifactId>specialevents-model</artifactId>
     		<version>1.0.0-SNAPSHOT</version>
     		<type>jar</type>
     		<scope>compile</scope>
     	</dependency>
        <dependency>
-    		<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    		<groupId>com.lacatira.specialevents</groupId>
     		<artifactId>specialevents-dao</artifactId>
     		<version>1.0.0-SNAPSHOT</version>
     		<type>jar</type>

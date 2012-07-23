@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cloudstreet-data</artifactId>
+    <artifactId>lacatira-data</artifactId>
     <packaging>pom</packaging>
-    <name>CloudStreet Data Modules</name>
+    <name>lacatira Data Modules</name>
 
     <description>
-        CloudStreet domain objects (cloudstreet-data-common) and DAO frameworks (Hibernate, JPA).
+        lacatira domain objects (lacatira-data-common) and DAO frameworks (Hibernate, JPA).
     </description>
 
 

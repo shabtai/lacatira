@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cloudstreet-specialevents</artifactId>
+    <artifactId>lacatira-specialevents</artifactId>
     <packaging>pom</packaging>
-    <name>CloudStreet special events</name>
+    <name>lacatira special events</name>
 
     <description>
-        CloudStreet event reservation
+        lacatira event reservation
     </description>
 
 

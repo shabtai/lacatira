@@ -10,7 +10,7 @@
 
 	<!-- Activates scanning of @Repository and @Service -->
 	<context:component-scan base-package="com.nsn.cloudstreet"/>
-
+    <context:component-scan base-package="com.lacatira"/>
 	<!-- Add new DAOs here -->
 
 	<!-- Add new Managers here -->

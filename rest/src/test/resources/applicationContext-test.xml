@@ -22,5 +22,5 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd http://www.s
 
 	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 
-   <context:component-scan base-package="com.nsn.cloudstreet.specialevents.management"/>
+   <context:component-scan base-package="com.lacatira.specialevents.management"/>
 </beans>

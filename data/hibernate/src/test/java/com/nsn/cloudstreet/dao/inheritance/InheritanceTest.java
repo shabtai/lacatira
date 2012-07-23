@@ -1,8 +1,8 @@
 package com.nsn.cloudstreet.dao.inheritance;
 
-import com.nsn.cloudstreet.common.GenericDao;
-import com.nsn.cloudstreet.dao.BaseDaoTestCase;
-import com.nsn.cloudstreet.dao.hibernate.GenericDaoHibernate;
+import com.lacatira.common.GenericDao;
+import com.lacatira.dao.BaseDaoTestCase;
+import com.lacatira.dao.hibernate.GenericDaoHibernate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;

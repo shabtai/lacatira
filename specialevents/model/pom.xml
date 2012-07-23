@@ -11,8 +11,8 @@
             <version>1.7.1</version>
         </dependency>
         <dependency>
-            <groupId>com.nsn.cloudstreet</groupId>
-            <artifactId>cloudstreet-common</artifactId>
+            <groupId>com.lacatira</groupId>
+            <artifactId>lacatira-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
@@ -48,16 +48,16 @@
 
 
     <parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet-specialevents</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira-specialevents</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.nsn.cloudstreet.specialevents</groupId>
+    <groupId>com.lacatira.specialevents</groupId>
     <artifactId>specialevents-model</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>CloudStreet special events model</name>
+    <name>lacatira special events model</name>
 
 
 </project>

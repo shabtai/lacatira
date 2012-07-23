@@ -6,6 +6,6 @@
 
 <hibernate-configuration>
 	<session-factory>
-        <mapping class="com.nsn.cloudstreet.specialevents.model.SpecialEvent"/>
+        <mapping class="com.lacatira.specialevents.model.SpecialEvent"/>
     </session-factory>
 </hibernate-configuration>

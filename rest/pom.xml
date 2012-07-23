@@ -5,19 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira</artifactId>
         <version>1.0.0-SNAPSHOT</version>
 
     </parent>
 
-    <artifactId>cloudstreet-rest</artifactId>
+    <artifactId>lacatira-rest</artifactId>
     <packaging>war</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>CloudStreet Web Service Module</name>
+    <name>lacatira Web Service Module</name>
 
     <description>
-        Service layer for CloudStreet-based applications. Includes JavaMail support, as well as Spring AOP
+        Service layer for lacatira-based applications. Includes JavaMail support, as well as Spring AOP
         pointcuts that apply transaction attributes to all *Manager interfaces in a "service" package.
     </description>
 
@@ -82,21 +82,16 @@
     </build>
 
     <dependencies>
+
         <dependency>
-            <groupId>com.nsn.cloudstreet.market</groupId>
-            <artifactId>market-model</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>com.nsn.cloudstreet.specialevents</groupId>
+            <groupId>com.lacatira.specialevents</groupId>
             <artifactId>specialevents-model</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.nsn.cloudstreet</groupId>
+            <groupId>com.lacatira</groupId>
             <artifactId>persistence-depc</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <type>pom</type>
@@ -104,19 +99,13 @@
 
 
         <dependency>
-            <groupId>com.nsn.cloudstreet.specialevents</groupId>
+            <groupId>com.lacatira.specialevents</groupId>
             <artifactId>specialevents-management</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.nsn.cloudstreet.users</groupId>
-            <artifactId>users-management</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
 
 
         <dependency>

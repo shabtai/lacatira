@@ -4,26 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 	<parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet-specialevents</artifactId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira-specialevents</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.nsn.cloudstreet.specialevents</groupId>
+    <groupId>com.lacatira.specialevents</groupId>
     <artifactId>specialevents-dao</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>CloudStreet special events dao</name>
+    <name>lacatira special events dao</name>
     <dependencies>
     	<dependency>
-    		<groupId>com.nsn.cloudstreet.specialevents</groupId>
+    		<groupId>com.lacatira.specialevents</groupId>
     		<artifactId>specialevents-model</artifactId>
     		<version>1.0.0-SNAPSHOT</version>
     		<type>jar</type>
     		<scope>compile</scope>
     	</dependency>
     	<dependency>
-    		<groupId>com.nsn.cloudstreet</groupId>
-    		<artifactId>cloudstreet-common</artifactId>
+    		<groupId>com.lacatira</groupId>
+    		<artifactId>lacatira-common</artifactId>
     		<version>1.0.0-SNAPSHOT</version>
     		<type>jar</type>
     		<scope>compile</scope>

@@ -14,7 +14,7 @@
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
 	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
-    <bean id="csExceptionMapper" class="com.nsn.cloudstreet.rest.errorhandling.GenericExceptionMapper"/>
+    <bean id="csExceptionMapper" class="com.lacatira.rest.errorhandling.GenericExceptionMapper"/>
 
     <!-- Add new endpoints for additional services you'd like to expose -->
 

@@ -1,6 +1,6 @@
 package com.nsn.cloudstreet.dao.hibernate;
 
-import com.nsn.cloudstreet.dao.BaseDaoTestCase;
+import com.lacatira.dao.BaseDaoTestCase;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
