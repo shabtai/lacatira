@@ -42,7 +42,7 @@
 		<!--<module>lacatira-lte-gui</module>-->
 		<module>specialevents</module>
 		<module>common</module>
-		<!--<module>gui</module>-->
+		<module>gui</module>
         <module>users</module>
 		<module>market</module>
 <!--         <module>lacatira-it</module> -->
