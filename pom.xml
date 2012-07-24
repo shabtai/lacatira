@@ -42,9 +42,9 @@
 		<!--<module>lacatira-lte-gui</module>-->
 		<module>specialevents</module>
 		<module>common</module>
-		<module>gui</module>
-        <!--<module>users</module>-->
-		<!--<module>market</module>-->
+		<!--<module>gui</module>-->
+        <module>users</module>
+		<module>market</module>
 <!--         <module>lacatira-it</module> -->
         <module>persistence-dependencies</module>
 	</modules>
@@ -81,6 +81,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
