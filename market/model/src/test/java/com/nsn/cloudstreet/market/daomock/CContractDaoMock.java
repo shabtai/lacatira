@@ -1,6 +1,6 @@
 package com.nsn.cloudstreet.market.daomock;
 
-import com.nsn.cloudstreet.common.BasicDaoMok;
+import com.lacatira.common.BasicDaoMok;
 import com.nsn.cloudstreet.market.dao.CContractDao;
 import com.nsn.cloudstreet.market.model.ConsignmentContract;
 import org.junit.Ignore;

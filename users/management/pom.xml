@@ -4,25 +4,34 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-<parent>
-        <groupId>com.nsn.cloudstreet</groupId>
-        <artifactId>cloudstreet-users</artifactId>
+ <parent>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.nsn.cloudstreet.users</groupId>
+
+    <groupId>com.lacatira.users</groupId>
     <artifactId>users-management</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>CloudStreet users management</name>
+
     <dependencies>
             <dependency>
-                <groupId>com.nsn.cloudstreet.users</groupId>
+                <groupId>com.lacatira.users</groupId>
                 <artifactId>users-model</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
+        <dependency>
+            <groupId>com.lacatira</groupId>
+            <artifactId>lacatira-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
          <dependency>
-                <groupId>com.nsn.cloudstreet.users</groupId>
+                <groupId>com.lacatira.users</groupId>
                 <artifactId>users-dao</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>jar</type>

@@ -1,7 +1,6 @@
 package com.nsn.cloudstreet.market.model;
 
-import com.nsn.cloudstreet.common.BusinessModel;
-
+import com.lacatira.common.BusinessModel;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +12,7 @@ import java.util.Set;
  * This class contains all the back office details data / operations related to contracts
  */
 @MappedSuperclass
-public abstract class ContractData<N extends Number, Q extends Quantity<?,N> , C extends Contract<? , ?,?, Q >, CC extends ConsignmentContract<? , ?,?, Q >> implements BusinessModel{
+public abstract class ContractData<N extends Number, Q extends Quantity<?,N> , C extends Contract<? , ?,?, Q >, CC extends ConsignmentContract<? , ?,?, Q >> implements BusinessModel {
     /**
      * Consignment contract
      */

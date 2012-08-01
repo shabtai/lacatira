@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>cloudstreet-market</artifactId>
-        <groupId>com.nsn.cloudstreet</groupId>
+        <groupId>com.lacatira</groupId>
+        <artifactId>lacatira-market</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
@@ -55,15 +55,15 @@
             <version>${jpa.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.nsn.cloudstreet</groupId>
-            <artifactId>cloudstreet-common</artifactId>
+            <groupId>com.lacatira</groupId>
+            <artifactId>lacatira-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.nsn.cloudstreet</groupId>
-            <artifactId>cloudstreet-common</artifactId>
+            <groupId>com.lacatira</groupId>
+            <artifactId>lacatira-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <type>test-jar</type>
             <scope>test</scope>

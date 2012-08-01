@@ -1,6 +1,7 @@
 package com.nsn.cloudstreet.market.model;
 
-import com.nsn.cloudstreet.common.BusinessModel;
+
+import com.lacatira.common.BusinessModel;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

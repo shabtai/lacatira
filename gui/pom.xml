@@ -83,8 +83,8 @@
 
 
 
-       <plugin>
-        <groupId>com.github.searls</groupId>
+       <!-- <plugin>
+         <groupId>com.github.searls</groupId>
         <artifactId>jasmine-maven-plugin</artifactId>
         <version>1.1.0</version>
         <executions>
@@ -100,7 +100,7 @@
         	  <jsTestSrcDir>${basedir}/src/main/webapp/test/spec</jsTestSrcDir>
 			 <customRunnerTemplate>${basedir}/src/main/webapp/autoSpecRunner.html</customRunnerTemplate>
         </configuration>
-      </plugin>
+      </plugin> -->
 		</plugins>
 	</build>
 </project>

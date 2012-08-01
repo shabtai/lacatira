@@ -92,11 +92,10 @@ public class PurchaseFlowEngineTest {
         basicContract.setProduct(new BasicProduct(1l));
         final Contract contract1 = purchaseFlowEngine.startPurchaseFlow(basicContract);
     }
-    @Test()
+
     public void withproductidfound(){
         final PurchaseFlowEngine purchaseFlowEngine = getPFE();
         final ContractData contractData = EasyMock.createNiceMock(ContractData.class);
-       ((ContractDataMock) purchaseFlowEngine.getContractDataDao()).add();
 
         final BasicContract basicContract = new BasicContract(){};
         basicContract.setProduct(new BasicProduct(1l));
