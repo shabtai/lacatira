@@ -2,7 +2,7 @@ package com.nsn.cloudstreet.market.daomock;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
-import com.nsn.cloudstreet.common.BasicDaoMok;
+import com.lacatira.common.BasicDaoMok;
 import com.nsn.cloudstreet.market.dao.ContractDataDao;
 import com.nsn.cloudstreet.market.model.ContractData;
 import org.junit.Ignore;

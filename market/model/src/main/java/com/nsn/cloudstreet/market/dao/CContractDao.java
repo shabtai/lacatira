@@ -1,6 +1,6 @@
 package com.nsn.cloudstreet.market.dao;
 
-import com.nsn.cloudstreet.common.GenericDao;
+import com.lacatira.common.GenericDao;
 import com.nsn.cloudstreet.market.model.ConsignmentContract;
 
 /**

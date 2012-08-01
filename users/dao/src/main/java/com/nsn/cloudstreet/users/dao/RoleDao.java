@@ -1,7 +1,7 @@
 package com.nsn.cloudstreet.users.dao;
 
 
-import com.nsn.cloudstreet.common.GenericDao;
+import com.lacatira.common.GenericDao;
 import com.nsn.cloudstreet.users.model.Role;
 
 /**

@@ -1,6 +1,6 @@
 package com.nsn.cloudstreet.users.dao;
 
-import com.nsn.cloudstreet.common.GenericDao;
+import com.lacatira.common.GenericDao;
 import com.nsn.cloudstreet.users.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
