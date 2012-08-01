@@ -14,6 +14,7 @@
          ref.parentNode.insertBefore(js, ref);
        }(document));
 
+
       // Init the SDK upon load
       window.fbAsyncInit = function() {
         FB.init({
@@ -48,17 +49,31 @@
 
               FB.api({
                 method: 'fql.multiquery',
+
                 queries: {
-                 query1:  'select uid  FROM user WHERE  uid IN (SELECT uid1 FROM friend WHERE uid2=me() '
-//                 query2: 'select uid, name FROM user WHERE  uid IN (select uid  FROM #query1)'
+                 query1:  'select uid  FROM user WHERE  uid  IN (SELECT uid1 FROM friend WHERE uid2=me()) ',
+                 query2: 'select uid1 FROM friend WHERE  uid2 IN (select uid  FROM #query1)'
                 }
                },
                function(response) {
-                   response.data.map( function(item) {
+                   response.map( function(item) {
                                alert(item.name);
                           })
-             })
+             });
 
+
+//              FB.api(
+//        {
+//            method: 'fql.query',
+//            query: 'select uid  FROM user WHERE  uid  IN (SELECT uid1 FROM friend WHERE uid2=me())'
+//        },
+//        function(data) {
+//            //    do something with the response
+//            data.map( function(item) {
+//                               alert(item.name);
+//                          })
+//        }
+//);
 
 //              FB.api('/me', function(response) {
 //                     var query = FB.Data.query('select name, hometown_location, sex from user where uid IN (SELECT uid2 FROM friend WHERE uid1(SELECT uid2 FROM friend WHERE uid1 = me())');
@@ -131,3 +146,6 @@
 
   </body>
 </html>
+
+
+
