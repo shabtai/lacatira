@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Facebook Client-side Authentication Example 2</title>
+    <title>Facebook Client-side Authentication Example 22</title>
   </head>
   <body>
     <div id="fb-root"></div>
@@ -19,7 +19,6 @@
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '188116691318317', // App ID
-//          channelUrl : '//'+window.location.hostname+'/channel.html', // Path to your Channel File
           channelUrl : 'http://localhost:8080/lacatira/channel.html', // Path to your Channel File
 
           status     : true, // check login status
@@ -37,73 +36,19 @@
               }
             })
 
-//              FB.api('/me/friends', { fields: 'name,id,location,birthday' }, function(result) {
-//                  document.getElementById('friends2').innerHTML = result.data[0].name
-//                          result.data.map( function(item) {
-//                               alert(item.name);
-//                          })
-//
-//
-//
-//})
-
-              FB.api({
-                method: 'fql.multiquery',
-
-                queries: {
-                 query1:  'select uid  FROM user WHERE  uid  IN (SELECT uid1 FROM friend WHERE uid2=me()) ',
-                 query2: 'select uid1 FROM friend WHERE  uid2 IN (select uid  FROM #query1)'
-                }
-               },
-               function(response) {
-                   response.map( function(item) {
-                               alert(item.name);
-                          })
-             });
 
 
-//              FB.api(
-//        {
-//            method: 'fql.query',
-//            query: 'select uid  FROM user WHERE  uid  IN (SELECT uid1 FROM friend WHERE uid2=me())'
-//        },
-//        function(data) {
-//            //    do something with the response
-//            data.map( function(item) {
-//                               alert(item.name);
-//                          })
-//        }
-//);
+            FB.api(
+        {
+            method: 'fql.query',
+           query: 'SELECT name, location , venue from event where eid in (SELECT eid FROM event_member WHERE uid in (select uid from group_member where gid in (select gid from group_member where uid in(SELECT uid2 FROM friend WHERE uid1 = me())) LIMIT 200) and rsvp_status = "attending" '+' and start_time >0 LIMIT 400)'
+        },
+        function(data) {
+            alert("this is the best location found:" + data[0].location)
+        }
+);
 
-//              FB.api('/me', function(response) {
-//                     var query = FB.Data.query('select name, hometown_location, sex from user where uid IN (SELECT uid2 FROM friend WHERE uid1(SELECT uid2 FROM friend WHERE uid1 = me())');
-//                  var query = FB.Data.query('select name, hometown_location, sex from user where uid = me()');
-//
-//                  query.wait(function(rows) {
-//
-//                       document.getElementById('name').innerHTML =
-//                         'Your name: ' + rows[0].name + "<br />" +
-//                         '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
-//                     });
-//                });
 
-//
-//            var a = FB.api.query(
-//                    'select uid FROM user WHERE  uid IN (SELECT uid1 FROM friend WHERE uid2=me() '
-//            );
-////            var b = FB.Data.query(
-////                    'select uid , name FROM user WHERE uid in  (SELECT uid1 FROM friend WHERE uid2 in ({0})', a
-////            );
-//
-//
-//            FB.api.waitOn([a],
-//        function () {
-//                document.getElementById('name').innerHTML =  b;
-////                         'Your name: ' + rows[0].name + "<br />" +
-////                         '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
-////                     });
-//        }
-//);
             document.getElementById('auth-loggedout').style.display = 'none';
             document.getElementById('auth-loggedin').style.display = 'block';
           } else {
@@ -115,7 +60,10 @@
 
         // respond to clicks on the login and logout links
         document.getElementById('auth-loginlink').addEventListener('click', function(){
-          FB.login();
+            FB.login(function(response) {
+              // handle the response
+            }, {scope: 'user_events,friends_groups,friends_groups,friends_events,friends_hometown,friends_interests,friends_location'});
+
         });
         document.getElementById('auth-logoutlink').addEventListener('click', function(){
           FB.logout();
@@ -123,7 +71,7 @@
       }
     </script>
 
-    <h1>Facebook Client-side Authentication Example 2</h1>
+    <h1>Facebook Client-side Authentication Example 22</h1>
       <div id="auth-status">
         <div id="auth-loggedout">
           <a href="#" id="auth-loginlink">Login</a>
