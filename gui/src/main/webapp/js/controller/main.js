@@ -35,19 +35,21 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/connect","dijit/_Wi
         },
 
         init: function () {
-            this.centralAreaContainer = dijit.byId("centralAreaStack");
-
-
-            connect.connect(toolbar, "onClick", this, this.goToHomePage);
-
-
-            this.handleHashChange(hash());
+//             var login = dojo.byId("login");
+//            connect.connect(login, "onClick", this, this.fb);
+//
+//            connect.connect(toolbar, "onClick", this, this.goToHomePage);
+//
+//
+//            this.handleHashChange(hash());
         },
 
         goToEventListPage:function (page, params) {
         },
 
-
+          fb: function () {
+           alert("bka")
+		},
 
 
         goToHomePage: function() {

@@ -9,7 +9,11 @@ define(["dijit/_Widget", "dijit/_TemplatedMixin", "dijit/_WidgetsInTemplateMixin
 		
 		create: function (a, b) {
 			this.inherited(arguments);
+           connect.connect(null , "onClick", this, this.fb);
+		},
+
+        fb: function () {
+           alert("bka")
 		}
-		
 	 });
 });

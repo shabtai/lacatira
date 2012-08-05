@@ -73,6 +73,76 @@ html, body{
             });
     });
 </script>
+     <script>
+         require([ "controller/fb"],
+                function(fb)  {
+      // Load the SDK Asynchronously
+      (function(d){
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         ref.parentNode.insertBefore(js, ref);
+       }(document));
+
+
+      // Init the SDK upon load
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '188116691318317', // App ID
+          channelUrl : 'http://localhost:8080/lacatira/channel.html', // Path to your Channel File
+
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true  // parse XFBML
+        });
+
+        // listen for and handle auth.statusChange events
+        FB.Event.subscribe('auth.statusChange', function(response) {
+          if (response.authResponse) {
+            // user has auth'd your app and is logged into Facebook
+            FB.api('/me', function(me){
+              if (me.name) {
+                document.getElementById('auth-displayname').innerHTML = me.name;
+              }
+            })
+
+
+
+            FB.api(
+        {
+            method: 'fql.query',
+           query: 'SELECT name, location , venue from event where eid in (SELECT eid FROM event_member WHERE uid in (select uid from group_member where gid in (select gid from group_member where uid in(SELECT uid2 FROM friend WHERE uid1 = me())) LIMIT 200) and rsvp_status = "attending" '+' and start_time >0 LIMIT 400)'
+        },
+        function(data) {
+            fb.fb(data);
+//            alert("this is the best location found:" + data[0].location)
+        }
+);
+
+
+            document.getElementById('auth-loggedout').style.display = 'none';
+            document.getElementById('auth-loggedin').style.display = 'block';
+          } else {
+            // user has not auth'd your app, or is not logged into Facebook
+            document.getElementById('auth-loggedout').style.display = 'block';
+            document.getElementById('auth-loggedin').style.display = 'none';
+          }
+        });
+
+        // respond to clicks on the login and logout links
+        document.getElementById('auth-loginlink').addEventListener('click', function(){
+            FB.login(function(response) {
+              // handle the response
+            }, {scope: 'user_events,friends_groups,friends_groups,friends_events,friends_hometown,friends_interests,friends_location'});
+
+        });
+        document.getElementById('auth-logoutlink').addEventListener('click', function(){
+          FB.logout();
+        });
+      }
+      });
+    </script>
 </head>
 <body class="claro" style="background: url('./images/mymap.jpg') fixed;">
 
@@ -81,8 +151,25 @@ html, body{
 		<div dojoType="view.MainView">
 		</div>		
 	</div>
-	 <div id="mini-logo"></div>	 
+	 <div id="login">loginyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</div>
  </div>
+       <div id="auth-status">
+        <div id="auth-loggedout">
+          <a href="#" id="auth-loginlink" size =15>Login</a>
+        </div>
+        <div id="auth-loggedin" style="display:none">
+          Hi, <span id="auth-displayname"></span>
+        (<a href="#" id="auth-logoutlink">logout</a>)
+      </div>
+          <div id="friends">
+            your best friend is, <span id="friends2"></span>
+
+        </div>
+          </div>
+          <div id="f3">
+            friends, <span id="name"></span>
+
+        </div>
  <!--<div id="footer"></div>-->
 </body>
 </html>
